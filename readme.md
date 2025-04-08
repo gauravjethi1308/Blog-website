@@ -1,4 +1,4 @@
-![Alt Text]()
+![Alt Text](https://github.com/gauravjethi1308/Blog-website/blob/74a5fe021a3077be0df1b7ed91679749e404b038/Screenshot%20(14).png)
 
 
 

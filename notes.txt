@@ -1,0 +1,100 @@
+hooks (react js)
+yae inbuilt funct provided by react js which help us in perform certain tasks
+
+1)use state is used for manging the state inside functional components.
+
+2)useeffect is used for side effects like
+-->fetching data ,updating the dom
+-->it runs after every render(default behaviour)
+
+
+3)useContext is used for gloabal state management to avoid prop drilling
+==>create a useContext
+const usercontext =createcontext();
+
+
+-->2)provide context value (parent component)
+return(
+    <userContext.provider value={user}
+    <c hild/>
+    </usercontext.provider>
+
+
+
+    -->use context value in child component
+    const user = usecontext(usercontext)
+    <h2>{user}</ h2>
+)
+
+context api lets you directly access shared data from anywhere.
+context API has three main parts:
+1)create a context -> create context()
+provide the context->context.provide
+consume the context->use context
+
+
+the virtual dom is copy of the actual dom react updates the virtual dom first compare it with previous version and then updates 
+the actual one
+
+
+
+
+fetch --> 
+no need to install any package
+return a promise and requyires .then to handle response
+
+
+
+
+
+
+vs axios
+==>third party library
+==>automaticallyt handles json converson
+
+const url ='url'
+const result = await axios.get(url)
+console.log(r.data)
+
+
+
+
+
+
+
+GET Request
+Used for: Fetching data (read-only).
+
+Data sent: As query parameters in the URL.
+
+Cacheable: Yes (browsers can cache GET requests).
+
+Security: Less secure (data is visible in the URL).
+
+
+
+
+
+POST Request
+Used for: Sending data to create or update a resource.
+
+Data sent: In the request body (not visible in the URL).
+
+Cacheable: No (not stored in browser history).
+
+Security: More secure than GET (data is hidden in the body)
+
+
+
+
+
+
+📌 Summary: Study Order
+1️⃣ index.js → Entry point, sets up the app.
+2️⃣ connection.js → Connects to MongoDB.
+3️⃣ models/url.js → Defines URL storage schema.
+4️⃣ controllers/url.js → Handles logic for short URLs & analytics.
+5️⃣ routes/url.js → Defines API endpoints & links to controllers.
+
+
+ejs,pug js engines

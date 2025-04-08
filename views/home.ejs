@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Home page</title>
+    <style>
+      .blog-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+      }
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .card-img-container {
+        height: 200px;
+        overflow: hidden;
+      }
+      .card-img-top {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-title {
+        flex-grow: 1;
+      }
+
+      .heading {
+        font-size: 4rem;
+        color: floralwhite;
+        margin-bottom: 20px;
+        font-family:monospace;
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      /* Add this for the header */
+      .finisher-header {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+    
+    <!-- Header div for animation -->
+    <div class="finisher-header">
+      <h1 class="heading">Your Blogs</h1>
+    
+    
+    <div class="container my-4">
+      <div class="row g-4">
+        <% blogs.forEach(blog => {%>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card blog-card shadow-sm">
+            <div class="card-img-container">
+              <img
+                src="<%= blog.coverimgurl || '/images/default-blog.jpg' %>"
+                class="card-img-top"
+                alt="<%= blog.title %>"
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                <h4>Title : <%= blog.title %></h1>
+              </h5>
+              <a
+                href="/blog/<%= blog._id %>"
+                class="btn btn-primary mt-auto align-self-start"
+                >Read Blog</a
+              >
+            </div>
+          </div>
+        </div>
+        <%}); %>
+      </div>
+    </div>
+  </div>
+    <!-- Load scripts in correct order -->
+    <%- include('./partials/scripts') %>
+    <script src="/finisher-header.es5.min.js"></script>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+        new FinisherHeader({
+          "count": 10,
+          "size": {
+            "min": 2,
+            "max": 40,
+            "pulse": 0
+          },
+          "speed": {
+            "x": {
+              "min": 0,
+              "max": 0.8
+            },
+            "y": {
+              "min": 0,
+              "max": 0.2
+            }
+          },
+          "colors": {
+            "background": "#15182e",
+            "particles": [
+              "#ff926b",
+              "#87ddfe",
+              "#acaaff",
+              "#1bffc2",
+              "#f9a5fe"
+            ]
+          },
+          "blending": "screen",
+          "opacity": {
+            "center": 1,
+            "edge": 1
+          },
+          "skew": -1,
+          "shapes": [
+            "c",
+            "s",
+            "t"
+          ]
+        });
+      });
+    </script>
+  </body>
+</html>
